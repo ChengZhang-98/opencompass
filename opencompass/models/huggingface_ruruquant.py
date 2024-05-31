@@ -18,6 +18,7 @@ class HuggingFaceBaseModelRuruQuant(HuggingFaceBaseModel):
         stop_words: str | None = [],
         **other_kwargs
     ):
+        self.q_config = q_config
         super().__init__(
             path,
             model_kwargs,
@@ -33,7 +34,6 @@ class HuggingFaceBaseModelRuruQuant(HuggingFaceBaseModel):
             **other_kwargs
         )
 
-        self.q_config = q_config
 
     def _load_model(
         self,
